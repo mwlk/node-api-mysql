@@ -6,9 +6,17 @@ export class UserRouter extends BaseRouter<UserController> {
     super(UserController);
   }
 
-  routes(): void{
+  routes(): void {
     this.router.get("/user", (req, res) => {
-        this.controller.GetUsers(req, res)
-    })
+      this.controller.GetUsers(req, res);
+    });
+
+    this.router.post("/register", (req, res) => {
+      this.controller.RegisterUser(req, res);
+    });
+
+    this.router.post("/login", (req, res) => {
+      this.controller.LoginUser(req, res);
+    });
   }
 }
